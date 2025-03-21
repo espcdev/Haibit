@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // Redirección para Single Page Apps
+    const path = window.location.pathname;
+    if (path !== '/' && !path.startsWith('/Haibit')) {
+      window.location.href = '/Haibit/index.html' + window.location.hash;
+    }
+  </script>
+</head>
+<body>
+  <h1>Cargando...</h1>
+</body>
+</html>

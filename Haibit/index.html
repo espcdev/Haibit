@@ -368,9 +368,17 @@
   	// Initialize
 document.addEventListener('DOMContentLoaded', init);
     // Supabase configuration
-    const SUPABASE_URL = 'https://cwuyqgeortpgvahunlct.supabase.co'; // Reemplazar con URL real
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN3dXlxZ2VvcnRwZ3ZhaHVubGN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0ODk3NTksImV4cCI6MjA1ODA2NTc1OX0.0XWFw2cQpiqCjO79uVZFVJKzaXL2C0q3QVtQcRS-D0U'; // Reemplazar con key real
-    window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const SUPABASE_URL = 'https://cwuyqgeortpgvahunlct.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN3dXlxZ2VvcnRwZ3ZhaHVubGN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0ODk3NTksImV4cCI6MjA1ODA2NTc1OX0.0XWFw2cQpiqCjO79uVZFVJKzaXL2C0q3QVtQcRS-D0U';
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+    storage: window.localStorage
+  }
+});
 
     // Current state
     let currentWikiId = null;
